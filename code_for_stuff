@@ -1,0 +1,158 @@
+#define BLYNK_TEMPLATE_ID "TMPL28x7pTwnS"
+#define BLYNK_TEMPLATE_NAME "Soly Monitoring System"
+#define BLYNK_AUTH_TOKEN "PGPjAaq3osOR2W8odrdgmTPAHy-W6kCy"
+#define BLYNK_PRINT Serial
+
+#include <Wire.h>
+#include <Adafruit_SSD1306.h>
+#include <Adafruit_ADS1X15.h>
+#include <BlynkSimpleEsp32.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+// Pin definitions
+const int oneWirePin = D3; // OneWire pin for DS18B20
+
+// OLED display
+Adafruit_SSD1306 display(128, 64, &Wire);
+
+// ADS1115
+Adafruit_ADS1115 ads;
+
+// DS18B20 temperature sensor
+OneWire oneWire(oneWirePin);
+DallasTemperature sensors(&oneWire);
+
+float voltage =0;
+float current =0;
+float power =0;
+unsigned long previousMillis = 0;
+float energy = 0;
+float temperature =0;
+float saving =0; // cost saving
+const float EnergyCost = 6.5;
+
+// Voltage divider resistor values
+const float R1 = 100;  // 100K
+const float R2 = 10;  // 10K
+const float R3 = 1;  // 1K
+const float R4 = 2; // 2K
+
+// ACS758 zero-current output voltage ( Offset Voltage)
+float OffsetVoltage = 2.5; 
+// ACS758 current sensor sensitivity
+const float sensitivity = 40; // in mV/A
+
+//========================= Variables for wifi server setup =============================
+const char* ssid = "TP-Link_3F0A";
+const char* password = "81488834";
+const char* blynkAuth = BLYNK_AUTH_TOKEN;     
+
+
+void setup()
+{
+  Serial.begin(115200);  
+  // Initialize the Wi-Fi and Blynk connections
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to Wi-Fi");
+  Blynk.begin(blynkAuth, ssid, password);
+   
+  // Initialize the OLED display
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  display.clearDisplay();
+  display.display();
+
+  // Initialize the ADS1115
+  ads.begin();
+
+  // Initialize the DS18B20 temperature sensor
+  sensors.begin();
+}
+
+void loop() {
+  
+  // Read the raw voltage values from the ADS1115
+  int16_t voltageRaw = ads.readADC_SingleEnded(0);
+  int16_t currentRaw = ads.readADC_SingleEnded(1);
+
+  // Calculate the voltage values in Volts
+  float voltageVolts = voltageRaw * (0.1875/1000) ; //  0.1875mV is default Gain 
+  float voltage = voltageVolts * ((R1 + R2) / R2); // Calculate the actual voltage by using the voltage dividers  
+  
+  // Calculate the current values in Amps
+  float currentVolts = currentRaw * ((R3 + R4) / R4)* (0.1875/1000); //  0.1875mV is default Gain 
+  current =  (currentVolts - OffsetVoltage )/(sensitivity / 1000.0) ; // convert voltage into current  
+   
+  // Calculate the power output (P = V * I)
+  power = voltage * current;
+
+  // Calculate energy by integrating power over time
+  unsigned long currentMillis = millis();
+  energy += power * (currentMillis - previousMillis) / 3600000; // Energy in Wh
+  saving = EnergyCost * ( energy /1000 );
+  previousMillis = currentMillis;
+
+  // Read the temperature from the DS18B20 sensor
+  sensors.requestTemperatures();
+  temperature = sensors.getTempCByIndex(0);  // temperature in Celsius
+//temperature = sensors.getTempFByIndex(0); // temperature in Fahrenheit
+ 
+  //Display the values on the OLED screen  
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(10, 10); 
+  display.print(voltage,2);
+  display.println(" V");
+  display.setCursor(70, 10); 
+  display.print(current,2);
+  display.println(" A");
+  display.setTextSize(2);
+  display.setCursor(10,25);  
+  display.print(power,2);
+  display.println(" W");
+  display.setCursor(10,45); 
+  display.print(energy,2);
+  display.println(" Wh");
+ // display.print("T: ");
+ // display.print(temperature);
+ // display.println(" C");
+  display.display();
+
+  // ================= Display Data on Blynk App ================================================
+    
+  // Send the data to Blynk
+  Blynk.run();
+  Blynk.virtualWrite(V0, voltage);
+  Blynk.virtualWrite(V1, current);
+  Blynk.virtualWrite(V2, power);
+  Blynk.virtualWrite(V3, energy/1000);
+  Blynk.virtualWrite(V4, temperature);
+  Blynk.virtualWrite(V5, saving);
+
+ // Print the values on the Serial Monitor  
+  Serial.print(" Voltage: ");
+  Serial.print(voltage);
+  Serial.print("V");  
+  Serial.print(" Current: ");
+  Serial.print(current);
+  Serial.print("A");
+  Serial.print(" Power: ");
+  Serial.print(power);
+  Serial.print("W");
+  Serial.print(" Energy: ");
+  Serial.print(energy,2);
+  Serial.print("Wh");
+  Serial.print(" Savings: ");
+  Serial.print("Rs.");
+  Serial.print(saving,2);  
+  Serial.print(" Temp: ");
+  Serial.print(temperature);
+  Serial.println("C");
+  
+  delay(100);
+}
