@@ -1,0 +1,34 @@
+const int forwards = 7;
+const int backwards = 6;//assign relay INx pin to arduino pin
+const int photores = A0;
+
+int lightval;
+
+void setup() {
+pinMode(forwards, OUTPUT);//set relay as an output
+pinMode(backwards, OUTPUT);//set relay as an output
+pinmode(photores, INPUT);
+}
+void loop() {
+  lightval = analogRead(photores);
+  if (lightval > 30){
+    digitalWrite(forwards, LOW);
+    digitalWrite(backwards, HIGH);//Activate the relay one direction, they must be different to move the motor
+    delay(2000); // wait 2 seconds
+    digitalWrite(forwards, HIGH);
+    digitalWrite(backwards, HIGH);//Deactivate both relays to brake the motor
+  } 
+  else if (lighval < 10){
+    digitalWrite(forwards, HIGH);
+    digitalWrite(backwards, LOW);//Activate the relay the other direction, they must be different to move the motor
+    delay(2000);// wait 2 seconds
+    digitalWrite(forwards, HIGH);
+    digitalWrite(backwards, HIGH);//Deactivate both relays to brake the motor
+  }
+  else{
+    digitalWrite(forwards, HIGH);
+    digitalWrite(backwards, HIGH);//Deactivate both relays to brake the motor
+    delay(2000);// wait 2 seconds
+  }
+
+}
