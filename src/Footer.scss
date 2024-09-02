@@ -1,0 +1,44 @@
+/* foot.scss */
+
+.footer {
+    background-color: rgb(30, 30, 30);
+    padding: 20px 0; /* Adjust padding as needed */
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content horizontally */
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 1;
+    padding: 0 10px; /* Adjust padding as needed */
+  }
+  
+  /* Optional: Styles for the left column */
+  .left-column {
+    margin-top: auto;
+    transform: translate(25%, -50%);
+    background-color: rgb(30, 30, 30); /* Example background color */
+  }
+  
+  /* Optional: Styles for the right column */
+  .right-column {
+    margin-top: auto;
+    transform: translate(25%, -50%);
+    background-color:rgb(30, 30, 30); /* Example background color */
+  }
+  
+  .rightText{
+    
+    font-size: small;
+    color: rgb(255, 255, 255);
+  }
+
+  .leftText{
+    font-size: small;
+    color: rgb(255, 255, 255);
+  }

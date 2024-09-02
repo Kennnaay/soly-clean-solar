@@ -1,0 +1,49 @@
+.image-wrapper{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+
+.card__inside__picture {
+    width: 600px;
+    height: 500px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+.offcanvas-body{
+    .btn__description{
+        text-align: center;
+        font-size: large;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+} 
+
+.offcanvas-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btn__title {
+    flex-grow: 1;
+    text-align: center;
+
+    .offcanvas-title{
+        font-size: xx-large;
+        font-weight: 700;
+    }
+  }
+
+  .btn-close {
+    position: absolute;
+    right: 1rem;
+  }
+}
