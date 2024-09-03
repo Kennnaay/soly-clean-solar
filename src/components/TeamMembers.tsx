@@ -58,9 +58,9 @@ function Cards({
       majors: ["Environmental Engineering"],
       picURL: mitchURL,
       description:
-        "As the original visionary, Mitch not only came up with the project idea but also led the team week after week, guiding them through the journey of transforming his ideas and visions into tangible realities. Click below to see how Mitch brought us all together to make something out of this world!",
+        "As the original visionary, Mitch not only came up with the project idea but also led the team week after week, guiding them through the journey of transforming his ideas and visions into tangible realities.",
       btnTitle: "Mitch's Contributions",
-      btnDescription: "BLAH BLAH",
+      btnDescription: "Bringing a hodgepodge group of various majors and ensuring everyone works together effectively is no easy task. But Mitch was able to do it to perfection. I mean, look at that team! ",
       contributionURL: MitchCont,
     },
     {
@@ -68,7 +68,7 @@ function Cards({
       majors: ["Computer Engineering", "Computer Science"],
       picURL: georgiaURL,
       description:
-        "Beyond being the Director of Internal Operations for Makers, she also happens to be our certified hardware expert! Georgia led the integration of hardware and software, ensuring the behind-the-scenes magic worked as expected. Click below to see all of her wirings!",
+        "Beyond being the Director of Internal Operations for Makers, she also happens to be our certified hardware expert! Georgia led the integration of hardware and software, ensuring the behind-the-scenes magic worked as expected.",
       btnTitle: "Georgia's Contributions",
       btnDescription:
         "Throughout her tenure at Sol'y Clean Solar, Georgia distinguished herself not just as a leader, but as a seasoned mentor, guiding each member of her team with expertise. As the sole Computer Engineering/Computer Science major, Georgia's contributions were pivotal in ensuring the excellence of Sol'y Clean Solar's electrical components. Below is an example of one of her many wirings.",
@@ -101,7 +101,7 @@ function Cards({
       majors: ["Mechanical Engineering"],
       picURL: jackURL,
       description:
-        "While he's not moving massive amounts of weight at the gym, Jack is half of the mechanical team, working with Hayden and Nathan to create the Solar Panel Design. Click below to see his various CAD designs for this project!",
+        "While he's not moving massive amounts of weight at the gym, Jack is half of the mechanical team, working with Hayden and Nathan to create the Solar Panel Design.",
       btnTitle: "Jack's Contributions",
       btnDescription:
         "During the course of the project, Jack seriously flexed his Mechanical Engineering muscles co-leading the design and implementation of all the moving parts of the solar panel. Below is Jack's CAD of the spinning cleaner! ",
@@ -112,7 +112,7 @@ function Cards({
       majors: ["Mechanical Engineering"],
       picURL: nathanURL,
       description:
-        "Along with Jack and Hayden, Nathan spearheaded all the mechanics that went into this project. If it moves, Nathan played a crucial role in its design and planning process.Click below to see his contributions!",
+        "Along with Jack and Hayden, Nathan spearheaded all the mechanics that went into this project. If it moves, Nathan played a crucial role in its design and planning process.",
       btnTitle: "Nathan's Contributions",
       btnDescription:
         "Below we've got an action shot of Nathan cutting and shaping the framing. This framing would go on to be used to reinforce the solar panel's structural integrity.",
@@ -123,7 +123,7 @@ function Cards({
       majors: ["Industrial and Systems Engineering"],
       picURL: haydenURL,
       description:
-        "Joining the team in the latter half of the project, Hayden's continued contributions to the mechanical design team, as well as his expertise in troubleshooting and problem-solving, greatly enhanced the project's overall efficiency.",
+        "Joining the team in the latter half of the project, Hayden's continued contributions to the mechanical design team, as well as his expertise in troubleshooting and problem-solving, greatly improved the team's efficiency.",
       btnTitle: "Hayden's Contributions",
       btnDescription:
         "Shown below is the team testing out a couple of Hayden's ideas for the spinner. Underneath the panel is actually a large wooden spinner which rotates the panel to any desired orientation.",
