@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -16,7 +18,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"
   },
-  "homepage": "https://<username>.github.io/<repository-name>",
+  "homepage": "https://Kennnaay.github.io/soly-clean-solar",
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",

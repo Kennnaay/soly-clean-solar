@@ -28,20 +28,6 @@ function Homepage() {
             </div>
           </div>
         </div>
-        {/* <div className="video-with-text">
-          <BgVideo2 />
-          <div className="text-overlay">
-            <h2>
-              It takes 108,000,000 gallons of water to clean the Nevada Solar
-              One Farm.
-            </h2>
-            <div className="second-button">
-              <Link to="/project-info" className="transparent-button-two mr-3">
-                Our Solution
-              </Link>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

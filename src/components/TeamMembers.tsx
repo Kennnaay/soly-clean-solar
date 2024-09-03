@@ -52,12 +52,11 @@ function Cards({
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
 
   // team member data
-  console.log("IN TEAMMEMBERS" + { kennyCode });
   const teamMembers: TeamMembers[] = [
     {
       name: "Mitchell Kirby",
       majors: ["Environmental Engineering"],
-      picURL: MitchFace,
+      picURL: mitchURL,
       description:
         "As the original visionary, Mitch not only came up with the project idea but also led the team week after week, guiding them through the journey of transforming his ideas and visions into tangible realities. Click below to see how Mitch brought us all together to make something out of this world!",
       btnTitle: "Mitch's Contributions",
