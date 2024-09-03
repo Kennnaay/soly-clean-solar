@@ -60,7 +60,8 @@ function Cards({
       description:
         "As the original visionary, Mitch not only came up with the project idea but also led the team week after week, guiding them through the journey of transforming his ideas and visions into tangible realities.",
       btnTitle: "Mitch's Contributions",
-      btnDescription: "Bringing a hodgepodge group of various majors and ensuring everyone works together effectively is no easy task. But Mitch was able to do it to perfection. I mean, look at that team! ",
+      btnDescription:
+        "Bringing a hodgepodge group of various majors and ensuring everyone works together effectively is no easy task. But Mitch was able to do it to perfection. I mean, look at that team! ",
       contributionURL: MitchCont,
     },
     {
@@ -90,7 +91,7 @@ function Cards({
       majors: ["Environmental Engineering", "Mechanical Engineering"],
       picURL: sophieURL,
       description:
-        " Without Sophie's insight, the project would have had a hard time getting off the ground. In the early stages, she was a key factor in, not only design, but also in strategic planning and implementation. Her versatility and leadership skills shined bright during her time with the project.",
+        " Without Sophie's insight, the project would have had a hard time getting off the ground. In the early stages, she was a key factor in, not only design, but also in strategic planning and implementation.",
       btnTitle: "Sophie's Contributions",
       btnDescription:
         "Below, is a picture of Sophie in action! Testing a linear actuator's ability to hold the weight of the solar panel!",
@@ -101,7 +102,7 @@ function Cards({
       majors: ["Mechanical Engineering"],
       picURL: jackURL,
       description:
-        "While he's not moving massive amounts of weight at the gym, Jack is half of the mechanical team, working with Hayden and Nathan to create the Solar Panel Design.",
+        "While he's not moving massive amounts of weight at the gym, Jack is half of the mechanical team, working with Hayden and Nathan to create the Solar Panel Design. Jack spent many late nights and early mornings working on the project, something the team thanks him greatly for doing!",
       btnTitle: "Jack's Contributions",
       btnDescription:
         "During the course of the project, Jack seriously flexed his Mechanical Engineering muscles co-leading the design and implementation of all the moving parts of the solar panel. Below is Jack's CAD of the spinning cleaner! ",
@@ -112,7 +113,7 @@ function Cards({
       majors: ["Mechanical Engineering"],
       picURL: nathanURL,
       description:
-        "Along with Jack and Hayden, Nathan spearheaded all the mechanics that went into this project. If it moves, Nathan played a crucial role in its design and planning process.",
+        "Along with Jack and Hayden, Nathan spearheaded all the mechanics that went into this project. Whether it be through research or testing, Nathan became an expert on all things solar! If it moves, Nathan played a crucial role in its design and planning process.",
       btnTitle: "Nathan's Contributions",
       btnDescription:
         "Below we've got an action shot of Nathan cutting and shaping the framing. This framing would go on to be used to reinforce the solar panel's structural integrity.",
